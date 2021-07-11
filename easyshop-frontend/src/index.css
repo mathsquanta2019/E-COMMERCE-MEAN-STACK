@@ -1,9 +1,4 @@
 
-html{
-  font-size: 62.5%; /*16px * 62.5= 10px = 1rem */
-  box-sizing: border-box;
-}
-
 body{
   margin: 0;
   height: 100vh;
@@ -11,6 +6,11 @@ body{
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+html{
+  font-size: 62.5%; /*16px * 62.5= 10px = 1rem */
+  box-sizing: border-box;
 }
 
 #root{
@@ -52,6 +52,21 @@ footer{
   align-items: center;
 }
 
+.rows.center{
+  justify-content: center;
+}
+
+.rows.top{
+  align-items: flex-start;
+}
+
+col-1{
+  flex: 1 1 25rem;
+}
+
+col-2{
+  flex: 2 1 50rem;
+}
 /* common styles */
 
 h1{
@@ -70,7 +85,37 @@ a{
 a:hover{
   color: gold;
 }
+ul{
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
 
+li{
+  margin-top: 1rem;
+}
+
+button{
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem rgb(73, 66, 66) solid; 
+  font-size: 1.6rem;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: lightgray;
+  cursor: pointer;
+}
+button:hover{
+  border: 0.2rem black solid;
+}
+
+button.primary{
+  background-color: gold;
+}
+button.block{
+  width: 100%;
+}
 /* Header */
 
 header a{
@@ -83,9 +128,7 @@ a.brand-text{
   font-size: 3rem;
   font-weight: bold;
 }
-.rows.center{
-  justify-content: center;
-}
+
 
 /* Images */
 img{
@@ -93,10 +136,13 @@ img{
 }
 
 img.medium{
-  max-width: 18rem;
+  max-width: 28rem;
   width: 100%;
 }
 
+img.large{
+  width:100%;
+}
 /* Card */
 .card{
   border: 0.1rem gray solid;
@@ -121,4 +167,31 @@ img.medium{
 .rating span{
   color: rgb(192, 175, 79);
   margin: 0.1rem;
+}
+
+.rating span:last-child{
+  color: black;
+}
+
+/* Alert */
+.success{
+  color:rgb(98, 202, 50);
+}
+.error{
+  color:red;
+}
+
+.alert{
+  padding: 1rem;
+  border: 0.1rem solid transparent;
+  border: 0.5rem
+}
+
+.alert-info{
+  color: blue;
+  background-color: beige;
+}
+.alert-danger{
+  color: red;
+  background-color: lightpink;
 }

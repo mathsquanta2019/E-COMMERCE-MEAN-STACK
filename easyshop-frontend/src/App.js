@@ -1,54 +1,28 @@
 import React from 'react';
-import data from './data';
+import { BrowserRouter, Route } from 'react-router-dom'
+import HomeScreen from './screens/HomeScreen';
+import ProductScreen from './screens/ProductScreen';
 function App() {
-  return (
-    <div className="grid-container">
-            <header className="rows">
-                <div>
-                    <a className="brand-text" href="/">EasyShop</a>
-                </div>
-                <div>
-                    <a href="/cart">Cart</a>
-                    <a href="/login">Login</a>
-                </div>
-            </header>
-
-            <main>
-                <div className="rows center">
-
-                    {
-                        data.products.map((product)  =>(
-                        <div key = {product._id}  className="card">
-                        <a href={`/product/${product._id}`}>
-                            
-                            <img className="medium" src = {product.image} alt={product.name} />
-                        </a>
-                        <div className="card-body">
-                        <a href={`/product/${product._id}`}>
-                                <h2>{product.name}</h2>
-                            </a>
-                            <div className="rating">
-                               <span><i className="fa fa-star"></i></span>
-                               <span><i className="fa fa-star"></i></span>
-                               <span><i className="fa fa-star"></i></span>
-                               <span><i className="fa fa-star"></i></span>
-                               <span><i className="fa fa-star-o"></i></span>
-                            </div>
-                            <div className="price">
-                                ${product.price}
-                            </div>
-                        </div>
+    return (
+        <BrowserRouter>
+            <div className="grid-container">
+                <header className="rows">
+                    <div>
+                        <a className="brand-text" href="/">EasyShop</a>
                     </div>
-                        ))
-                    }
-
-                     
-                </div>
-            </main>
-
-            <footer className="rows center">&copy Prabina Raut ITSS438</footer>
-        </div>
-  );
+                    <div>
+                        <a href="/cart">Cart</a>
+                        <a href="/login">Login</a>
+                    </div>
+                </header>
+                <main>
+                    <Route path="/product/:id" component={ProductScreen}></Route>
+                    <Route path="/" component={HomeScreen} exact></Route> 
+                </main>
+                <footer className="rows center">&copy; Prabina Raut ITSS438</footer>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;
